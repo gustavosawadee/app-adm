@@ -1,0 +1,157 @@
+	<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="./js/jquerymobile/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <script src="./js/jquery-2.2.4.min.js"></script>
+    <script src="./js/jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+
+<!-- essa função da um comando para o loader seguir para a proxima pagina (#page2)-->
+    <script>
+        function alertar() {
+            setTimeout(function(){window.location='#page2';}, 2000);
+        }
+    </script>
+   <style>
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+
+<body> <!-- todas as paginas estão separadas por divs , mt comum vcs verem as telas separadas por (divs data-role="")-->
+    <div data-role="page" id="pageLoading">
+        <div data-role="header">
+        </div>
+        <div data-role="main" class="tamanhoMinimo" style="background-color: white">
+        	<br><br><br><br><br>
+        	<img style="position: absolute;width: 424px;height: 500px;" src="img/logo.jpeg" border="0">
+        </div>
+            <script type="text/javascript">
+                alertar();
+            </script>
+        </div>
+        <div data-role="footer">
+        </div>
+    </div>
+
+    <div data-role="page" id="page2" style="background-image: url('login.jpg');background-repeat:no-repeat;background-position: center top;background-attachment:fixed;width: 406px;height: 425px">
+		<div data-role="header" style="background-color: black">
+    	<h3 style="color: white;" align="center">Login</h3>
+		</div>
+    	<div data-role="main" class="tamanhoMinimo">
+    		<br><br><br><br>
+    		<form action="/action_page.php">
+				<label style="font: 25px lato;color: white">Login:</label> 
+				<input type="email" name="Login" value="" style="background-color:#87766C;color: white"><br>
+				<label style="font: 25px lato;color: white">Senha:</label>
+				 <input type="password" name="Senha" value="" style="background-color:#87766C;color: white"><br>
+				<a  data-role="button" style="background-color: #F5FFF3;color: black" href="#page3">Entrar</a>
+			</form>
+		</div>
+		<div data-role="footer">
+		</div>
+	</div>	
+
+        <div data-role="page" id="page3" style="background-image: url('fundo.jpg');background-repeat:no-repeat;background-position: center top;background-attachment:fixed;width: 406px;height: 625px">
+		<div data-role="header" class="container" data-theme="b">
+            <h3 style="color: white; border-radius: 8px" align="center">Barbertruck</h3>
+		</div>	
+		<br><br>
+            <div data-role="main" class="tamanhoMinimo">
+            	<div id="mySidenav" class="sidenav">
+  				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  				<p align="center" style="font-size: 30px;font: lato; color: white">Produtos:</p>
+ 				<a href="#page4">Barba</a>
+  				<a href="#page4">Cabelo</a>
+  				<a href="#page4">Bigode</a>
+  				<a href="#page4">Sobrancelhas</a>
+		</div>
+			<span class="" style="font-size:30px;font: lato; cursor:pointer;color: white" onclick="openNav()">&#9776;Menu Barbertruck</span>
+
+		<script>
+			function openNav() {
+   			document.getElementById("mySidenav").style.width = "250px";
+		}
+
+		function closeNav() {
+    	document.getElementById("mySidenav").style.width = "0";
+		}
+		</script>
+            <div data-role="footer">
+				</div>	
+        </div>
+       </div> 
+        <div data-role="page" id="page4" style="background-image: url('agenda.jpg');background-repeat:no-repeat;background-position: center top;background-attachment:fixed;width: 406px;height: 925px">
+        		<div data-role="header" class="container" data-theme="b">
+        			<h3>Agendamento</h3>
+        		</div>	
+        		<br>
+        	<div data-role="main" class="tamanhoMinimo">
+        	<form class="w3-container w3-card-4">
+  				<h1 style="color: white;font-size: 30px;">Escolha o tipo de serviço:</h1>
+
+  			<select class="w3-select w3-border" name="option">
+   				 <option value="" disabled selected>Escolha sua opção</option>
+   				 <option value="Barba">Barba</option>
+   				 <option value="Cabelo">Cabelo</option>
+   				 <option value="Bigode">Bigode</option>
+   				 <option value="Sombrancelhas">Sombrancelhas</option>
+  			</select>
+  				<h1 style="color: white;font-size: 30px">Dia e Hora:</h1>
+  				<input type="datetime-local" name="Horario" id="data" value="" placeholder="Horario">
+  				<p><button id="agendar" class="w3-button w3-black">Agendar</button></p>
+			</form>
+        	</div>
+        		<div data-role="footer">
+				</div>	
+        </div>
+
+		
+		
+</body>
+
+</html>
